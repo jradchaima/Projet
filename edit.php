@@ -9,11 +9,11 @@
 </head>
 <body>
     <?php
-       include './vehicule.class.php';
+      include './classes/vehicule.class.php';
         $vehicule = new vehicule;
         if (!empty($_POST)) {
-            $vehicule->updatevehicule($_POST['vid'],$_POST['status'],$_POST['vehicule_num']);
-            header('Location:vindex.php?notif=update');
+            $vehicule->updatevehicule($_POST['vid'], $_POST['statut'], $_POST['vehicule_num']);
+            header('Location: vindex.php?notif=update');
             exit();
         } else {
             $showvehicule = $vehicule->showOnevehicule($_GET['vid']);
@@ -31,20 +31,18 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="status">status</label>
-                            <input type="text" value="<?= $data['status'] ?>"  name="status" class="form-control" id="status">
+                            <label for="statut">statut</label>
+                            <input type="text" value="<?= $data['statut'] ?>"  required name="statut" class="form-control" id="statut">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="vehicule_num">numéro de véhicule</label>
-                            <input type="number" value="<?= $data['vehicule_num'] ?>"  name="vehicule_num" class="form-control" id="vehicule_num">
+                            <input type="number" value="<?= $data['vehicule_num'] ?>"  required name="vehicule_num" class="form-control" id="vehicule_num">
                         </div>
                     </div>
                 </div>
-                
-                    
-                </div>
+
                 
                 <div class="row">
                     <div class="col-md-6">

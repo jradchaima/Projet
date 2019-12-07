@@ -2,9 +2,9 @@
 <body>
     <?php
         if (isset($_POST['sub'])) {
-            include './vehicule.class.php';
+            include './classes/vehicule.class.php';
             $vehicule = new vehicule;
-            $vehicule->addNewVehicule($_POST['status'], $_POST['vehicule_num']);
+            $vehicule->addNewVehicule($_POST['statut'], $_POST['vehicule_num']);
             header('Location:vindex.php?notif=add');
             exit();
         }
@@ -18,15 +18,12 @@
             <form action="" method="post">
                
                     
-                        <div class="form-group">
-                            <label for="vid">Vehicule Identifiant</label>
-                            <input type="text" required name="vid" class="form-control" id="vid">
-                        </div>
+                       
                 <br>
                    
                         <div class="form-group">
-                            <label for="status">Status de Vehicule</label>
-                            <input type="text" required name="status" class="form-control" id="status">
+                            <label for="statut">Status de Vehicule</label>
+                            <input type="text" required name="statut" class="form-control" id="statut">
                         </div>
                    
             

@@ -25,11 +25,12 @@
                     <th>Vid</th>
                     <th>Status</th>
                     <th>Numero</th>
+                    <th>Operations</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    include './vehicule.class.php';
+                    include './classes/vehicule.class.php';
                     $vehicule = new vehicule;
                     $listVehicule= $vehicule->readAllvehicules();
                     $data = $listVehicule->fetchAll(); //une autre façon pour fetcher les données
@@ -39,11 +40,11 @@
                     ?>
                         <tr>
                             <td><?= $vehiculetData['vid'] ?></td>   
-                            <td><?= $vehiculetData['status'] ?></td>   
+                            <td><?= $vehiculetData['statut'] ?></td>   
                             <td><?= $vehiculetData['vehicule_num'] ?></td>
                             <td>
-                                <a href='edit.php?id=<?= $vehiculetData['vid'] ?>' class="btn btn-outline-warning">Editer</a>&nbsp;&nbsp;
-                                <a href='delete.php?id=<?= $vehiculetData['vid'] ?>' class="btn btn-outline-danger">Supprimer</a>
+                                <a href='edit.php?vid=<?= $vehiculetData['vid'] ?>' class="btn btn-outline-warning">Editer</a>&nbsp;&nbsp;
+                                <a href='delete.php?vid=<?= $vehiculetData['vid'] ?>' class="btn btn-outline-danger">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach //on ferme la boucle qu'on a ouvert précédemment avec php ?>
