@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>inscription</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="ContactFrom_v18/css/util.css">
+	<link rel="stylesheet" type="text/css" href="ContactFrom_v18/css/main.css">
+<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+
+	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="contact100-form validate-form">
+        <span class="contact100-form-title">
+		   Entrez Vos Informations
+		</span>
+        <?php if (isset($auth_error)): ?>
+			<div class="alert alert-danger alert-dismissible fade show">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+				<?= $auth_error ?>
+			</div>
+        <?php endif ?>
+            
+			
+
+
+        <div class="wrap-input100 validate-input" data-validate="Name is required"> 
+            <label class="label-input100" for="nom">Nom</label>
+			<input id="nom" class="input100" type="text" name="nom" placeholder="Entrez votre nom..." value="<?= $_POST['email'] ?? '' ?>" maxlength="50" required="">
+			<span class="focus-input100"><?php if (isset($nom_error)) echo $nom_error; ?></span>
+        </div>
+
+
+	
+	    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+            <label class="label-input100" for="email">Address Email</label>
+			<input id="email" class="input100" type="email" name="email" placeholder="Entrez votre adresse..." value="<?= $_POST['email'] ?? '' ?>" maxlength="50" required="">
+			<span class="focus-input100"><?php if (isset($email_error)) echo $email_error; ?></span>
+        </div>
+
+
+        <div class="wrap-input100 validate-input" data-validate="password is required">
+			<label class="label-input100" for="password"> mot de passe </label>
+			 <input id="password" class="input100" type="text" name="password" placeholder="Entrer votre mot de passe...">
+			 <span class="focus-input100"><?php if (isset($password_error)) echo $password_error; ?></span>
+        </div>
+
+	
+        <div class="wrap-input100 validate-input" data-validate="confirm password is required">
+            <label class="label-input100" for="password"> Confirm Password</label>
+            <input id="cpassword" class="input100" type="password" name="cpassword" placeholder="Confirmez votre mot de passe...">
+            <span class="focus-input100"><?php if (isset($cpassword_error)) echo $cpassword_error; ?></span>
+        </div>
+	
+
+		<div class="wrap-input100 validate-input" data-validate="numéro téléphone">
+            <label class="label-input100" for="tel"> Numéro téléphone</label>
+            <input id="tel" class="input100" type="number" name="tel" placeholder="saisir votre numéro téléphone...">
+            <span class="focus-input100"></span>
+        </div>
+
+		<div class="container-contact100-form-btn">
+		  <input type="submit" class="contact100-form-btn"  name="signup" value="submit">
+		</div>
+
+
+        <div class="text-center">
+             Already have a account?<a href="login.php" class="btn btn-default">Login</a>
+         </div>
+	
+		<div class="contact100-form-social flex-c-m">
+			<a href="#" class="contact100-form-social-item flex-c-m bg1 m-r-5">
+			 <i class="fa fa-facebook-f" aria-hidden="true"></i>
+			</a>
+
+			<a href="#" class="contact100-form-social-item flex-c-m bg2 m-r-5">
+			  <i class="fa fa-twitter" aria-hidden="true"></i>
+			</a>
+
+			<a href="#" class="contact100-form-social-item flex-c-m bg3">
+				<i class="fa fa-youtube-play" aria-hidden="true"></i>
+			</a>
+		</div>
+
+			</form>
+
+			 <div class="contact100-more flex-col-c-m" style="background-image: url('ContactFrom_v18/bg-01.jpg');">
+			 </div>
+	</div>
+ </div>
+
+
+
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+		$(".js-select2").each(function(){
+			$(this).on('select2:open', function (e){
+				$(this).parent().next().addClass('eff-focus-selection');
+			});
+		});
+		$(".js-select2").each(function(){
+			$(this).on('select2:close', function (e){
+				$(this).parent().next().removeClass('eff-focus-selection');
+			});
+		});
+
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+</body>
+</html>
