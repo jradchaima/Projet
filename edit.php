@@ -9,11 +9,11 @@
 </head>
 <body>
 <?php
-        include './classes/Employé.class.php';
+       include '.\classes\Employé.class.php';
         $Employé = new Employé;
         if (!empty($_POST)) {
             $Employé->updateEmployé($_POST['eid'],$_POST['nom'], $_POST['phno'], $_POST['email'], $_POST['mot_pasee']);
-            header('Location:index1.php?notif=update');
+            header('Location:admin.php?notif=update');
             exit();
         } else{
         $showEmployé = $Employé->showOneEmployé($_GET['id']);
@@ -55,9 +55,9 @@
                         </div>
                     </div>
                     
-                </div>
+              
 
-                <div class="row">
+                
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="mot_pasee">passe</label>
@@ -66,7 +66,7 @@
                     </div>
                     
                 </div>
-             
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-block btn-outline-primary">Enregistrer</button>

@@ -13,7 +13,7 @@
             include './classes/produit.class.php';
             $produit = new produit;
             $produit->AjouterProduit($_POST['nom'], $_POST['description'], $_POST['prix'], $_POST['fichier']);
-            header('Location:index.php?notif=add');
+            header('Location:employe.php?notif=add');
             exit();
         }
     ?>

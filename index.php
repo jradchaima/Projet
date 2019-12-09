@@ -54,7 +54,7 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Acceuil</a></li>
-          <li><a href="#services"><a href="index1.php">Employé</a></li>
+         
           <li><a href="#portfolio">Menu</a></li>
           <li><a href="#team">Chefs</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -192,7 +192,6 @@
 
         <header class="section-header">
           <h3>Facts</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
         </header>
 
         <div class="row counters">
@@ -236,7 +235,6 @@
         <header class="section-header">
           <h3 class="section-title">Notre menu</h3>
         </header>
-        <a href="ajout.php"><button class="btn btn-primary">Ajouter</button></a> 
 
         <div class="row">
           <div class="col-lg-12">
@@ -248,7 +246,7 @@
         </div>
 
  <?php
-include 'produit/menu.php';
+include 'produit/menu1.php';
 ?>
            
     </section>
