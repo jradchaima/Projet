@@ -1,12 +1,13 @@
+
 <?php
-include 'dbconnect.class.phps';
+
+require 'C:\wamp\www\pp\projet\classes\dbconnect.class.php';
 function creationPanier(){
    if (!isset($_SESSION['panier'])){
       $_SESSION['panier']=array();
       $_SESSION['panier']['cid'] = array();
       $_SESSION['panier']['pid'] = array();
       $_SESSION['panier']['quant'] = array();
-      $_SESSION['panier']['prix'] = array();
       $_SESSION['panier']['status'] = array();
       $_SESSION['panier']['verrou']=false;
    }
@@ -21,7 +22,7 @@ function isVerrouille(){
  }
 
 //ajouter un produit
-function ajouterArticle($codeprod,$quantProduit,$prixProduit)
+function ajouterArticle($codeprod,$pid,$quantProduit,$status)
 {
  if (creationPanier() && !isVerrouille())
     {
@@ -34,8 +35,9 @@ function ajouterArticle($codeprod,$quantProduit,$prixProduit)
        else
        {
           array_push( $_SESSION['panier']['cid'],$codeprod);
-          array_push( $_SESSION['panier']['pid'],$quantProduit);
-          array_push( $_SESSION['panier']['prix'],$prixProduit);
+          array_push( $_SESSION['panier']['pid'],$pid);
+          array_push( $_SESSION['panier']['quant'],$quantProduit);
+          array_push( $_SESSION['panier']['status'],$status);
        }
     }
     else
@@ -47,18 +49,19 @@ function ajouterArticle($codeprod,$quantProduit,$prixProduit)
     {
        $tmp=array();
        $tmp['cid'] = array();
+       $tmp['pid'] = array();
        $tmp['quant'] = array();
-       $tmp['prix'] = array();
        $tmp['status'] = array();
        $tmp['verrou'] = $_SESSION['panier']['verrou'];
  
-       for($i = 0; $i < count($_SESSION['panier']['libelleProduit']); $i++)
+       for($i = 0; $i < count($_SESSION['panier']['cid']); $i++)
        {
-          if ($_SESSION['panier']['libelleProduit'][$i] !== $libelleProduit)
+          if ($_SESSION['panier']['cid'][$i] !== $codeprod)
           {
-             array_push( $tmp['libelleProduit'],$_SESSION['panier']['libelleProduit'][$i]);
-             array_push( $tmp['qteProduit'],$_SESSION['panier']['qteProduit'][$i]);
-             array_push( $tmp['prixProduit'],$_SESSION['panier']['prixProduit'][$i]);
+             array_push( $tmp['cid'],$_SESSION['panier']['cid'][$i]);
+             array_push( $tmp['quant'],$_SESSION['panier']['quant'][$i]);
+             array_push( $tmp['pid'],$_SESSION['panier']['pid'][$i]);
+             array_push( $tmp['status'],$_SESSION['panier']['status'][$i]);
           }
  
        }
@@ -101,14 +104,14 @@ function ajouterArticle($codeprod,$quantProduit,$prixProduit)
     unset($_SESSION['panier']);
  }
 
+
  function compterArticles()
  {
     if (isset($_SESSION['panier']))
-    return count($_SESSION['panier']['libelleProduit']);
+    return count($_SESSION['panier']['cid']);
     else
     return 0;
  
  }
- 
+
  ?>
-?>
