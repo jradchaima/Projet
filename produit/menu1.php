@@ -23,12 +23,12 @@
                         <?php echo $produitData['description']; ?>
                         </p>
                        
-
+                        
+<h4>Quantite</h4><input type="text" name="quantity" value="1" class="form-control" style="width:200px" />
+                        <input type="submit" name="ajouter au panier" style="margin-top:5px;" class="btn btn-success" value="Ajouter au panier" />
                        
 
-                        <br>
-                        <a href='produit/edit.php?pid=<?= $produitData['pid'] ?>' class="btn btn-outline-warning">Editer</a>&nbsp;&nbsp;
-                                <a href='produit/delete.php?pid=<?= $produitData['pid'] ?>' class="btn btn-outline-danger">Supprimer</a>
+              
                         </div>
                         <?php endforeach //on ferme la boucle qu'on a ouvert précédemment avec php ?>
           
